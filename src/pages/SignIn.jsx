@@ -18,7 +18,7 @@ import { useNavigate } from "react-router";
 import { useAuthUser } from "../App";
 
 const signIn = async (data) => {
-  const res = await axios.post("http://localhost:3001/api/auth/sign-in", data);
+  const res = await axios.post("/api/auth/sign-in", data);
   console.log(res);
   return res;
 };

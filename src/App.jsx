@@ -8,6 +8,7 @@ import Products from "./pages/Products";
 import NavBar from "./components/NavBar";
 import Dashboard from "./pages/dashboard/Dashboard";
 import DashboardProducts from "./pages/dashboard/DashboardProducts";
+import ProductForm from "./pages/dashboard/ProductForm";
 
 const queryClient = new QueryClient();
 const AuthUserContext = createContext(null);
@@ -44,7 +45,6 @@ function AdminRoutes() {
   return <Navigate to="/" />;
 }
 
-
 function App() {
   const [authUser, setAuthUser] = useState(getValueFromLocalStorage);
 
@@ -58,7 +58,6 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<HomeLayout />}>
-            
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
               <Route element={<ProtectedRoutes />}>
@@ -68,11 +67,17 @@ function App() {
             </Route>
 
             <Route element={<AdminRoutes />}>
-            <Route element={<Dashboard />}>
-             <Route path="/dashboard/products" element={<DashboardProducts/>} />
-            <Route path="/dashboard/users" element={<h2>users list</h2>} />
-            <Route path="/dashboard/orders" element={<h2>orders list</h2>} />
-            </Route>
+              <Route path="dashboard" element={<Dashboard />}>
+                <Route index element={<h2>Welcome to dashboard</h2>} />
+                <Route path="products" element={<DashboardProducts />} />
+                <Route path="products/add" element={<ProductForm />} />
+                <Route
+                  path="products/edit/:productId"
+                  element={<ProductForm />}
+                />
+                <Route path="users" element={<h2>users list</h2>} />
+                <Route path="orders" element={<h2>orders list</h2>} />
+              </Route>
             </Route>
 
             <Route element={<GuestRoutes />}>
