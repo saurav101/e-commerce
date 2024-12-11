@@ -9,6 +9,8 @@ import NavBar from "./components/NavBar";
 import Dashboard from "./pages/dashboard/Dashboard";
 import DashboardProducts from "./pages/dashboard/DashboardProducts";
 import ProductForm from "./pages/dashboard/ProductForm";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const queryClient = new QueryClient();
 const AuthUserContext = createContext(null);
@@ -87,6 +89,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>
+      <ToastContainer />
     </AuthUserContext.Provider>
   );
 }
