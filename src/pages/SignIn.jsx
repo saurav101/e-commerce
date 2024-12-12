@@ -15,8 +15,7 @@ import * as yup from "yup";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import { useAuthUser } from "../App";
-
+import { useAuthUser } from "../providers/AuthProvider";
 const signIn = async (data) => {
   const res = await axios.post("/api/auth/sign-in", data);
   console.log(res);

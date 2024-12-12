@@ -9,17 +9,21 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import Badge from "@mui/material/Badge";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import StorefrontSharpIcon from "@mui/icons-material/StorefrontSharp";
-import { useAuthUser } from "../App";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { useAuthUser } from "../providers/AuthProvider";
 import { useNavigate } from "react-router";
+import { useCart } from "../providers/CartProvider";
 
 const pages = ["Products", "Pricing", "Blog"];
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function NavBar() {
   const { authUser, setAuthUser } = useAuthUser();
+  const { cart } = useCart();
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -150,6 +154,14 @@ function NavBar() {
           </Box>
           {authUser && (
             <Box sx={{ flexGrow: 0 }}>
+              <Badge
+                badgeContent={cart.length}
+                color="error"
+                sx={{ mr: 2 }}
+                onClick={() => navigate("/cart")}
+              >
+                <AddShoppingCartIcon />
+              </Badge>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt={authUser?.name} src={"hehe.jpg"} />

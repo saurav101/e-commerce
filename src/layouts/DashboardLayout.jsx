@@ -16,8 +16,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import GroupIcon from "@mui/icons-material/Group";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -103,7 +101,7 @@ const Drawer = styled(MuiDrawer, {
   ],
 }));
 
-export default function Dashboard() {
+export default function DashboardLayout() {
   const theme = useTheme();
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
