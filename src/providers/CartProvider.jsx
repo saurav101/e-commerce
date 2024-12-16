@@ -45,6 +45,7 @@ export default function CartProvider({ children }) {
     }
     setCart([...cart]);
   };
+  const resetCart = () => setCart([]);
   return (
     <CartContext.Provider
       value={{
@@ -52,6 +53,7 @@ export default function CartProvider({ children }) {
         handleCartIncrement,
         handleCartDecrement,
         handleAddToCart,
+        resetCart,
       }}
     >
       {children}

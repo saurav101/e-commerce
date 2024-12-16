@@ -55,9 +55,10 @@ export default function ProductForm() {
   const {
     register,
     handleSubmit,
-    setValue,
-    getFieldState,
     formState: { errors },
+    setValue,
+    control,
+    getValues,
   } = useForm({
     resolver: yupResolver(schema),
   });

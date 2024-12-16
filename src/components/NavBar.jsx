@@ -19,7 +19,6 @@ import { useNavigate } from "react-router";
 import { useCart } from "../providers/CartProvider";
 
 const pages = ["Products", "Pricing", "Blog"];
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function NavBar() {
   const { authUser, setAuthUser } = useAuthUser();

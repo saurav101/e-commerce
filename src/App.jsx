@@ -9,7 +9,7 @@ import ProductForm from "./pages/dashboard/ProductForm";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DashboardLayout from "./layouts/DashboardLayout";
-import { HomeLayout } from "./layouts/HomeLayout";
+import HomeLayout from "./layouts/HomeLayout";
 import {
   AdminRoutes,
   GuestRoutes,
@@ -17,6 +17,7 @@ import {
 } from "./layouts/RoutesLayout";
 import AuthProvider from "./providers/AuthProvider";
 import Cart from "./pages/Cart";
+import Orders from "./pages/user/Orders";
 
 const queryClient = new QueryClient();
 
@@ -30,9 +31,13 @@ function App() {
               <Route element={<HomeLayout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/products" element={<Products />} />
+                <Route
+                  path="/success"
+                  element={<h2>Payment done succesfully!</h2>}
+                />
                 <Route path="/cart" element={<Cart />} />
                 <Route element={<ProtectedRoutes />}>
-                  <Route path="/orders" element={<h2>Orders Page</h2>} />
+                  <Route path="/orders" element={<Orders />} />
                   <Route path="/profile" element={<h2>Profile Page</h2>} />
                 </Route>
               </Route>

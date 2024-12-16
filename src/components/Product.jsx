@@ -23,9 +23,6 @@ export default function ProductCard({ product }) {
         <Typography gutterBottom variant="h6" component="div">
           ${product.price}
         </Typography>
-        <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          Classy!!!
-        </Typography>
       </CardContent>
       <CardActions>
         <Button
